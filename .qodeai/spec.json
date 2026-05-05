@@ -1,0 +1,64 @@
+{
+  "name": "food-ordering-web-application",
+  "description": "Food Ordering Web Application — EPIC: Menu Viewing\n1 story\nUS-001\nView Menu Items\nAs customer, I want to view a list of food items with their name, price, and image, so that I can choose what to order.\n\nFields\n3\n• Name\n• Price\n• Image\nValidations\n2\n• All food items are listed with complete information\n================================================================================\nAcceptance Criteria\n3\nGiven I am on the Menu Page\nWhen I open the website\nThen I see all available food items with their name, price, and image\nEPIC: Cart Management\n4 stories\nUS-002\nAdd Items to Cart\nAs customer, I want to add food items to my cart from the menu, so that I can order multiple items at once.\n\nFields\n1\n• Food item selection\nValidations\n2\n• Item is added to cart only once per click\n================================================================================\nAcceptance Criteria\n3\nGiven I am viewing the Menu Page\nWhen I click \"Add to Cart\" on a food item\nThen that item appears in my cart\nUS-003\nRemove Items from Cart\nAs customer, I want to remove items from my cart, so that I can update my order before checkout.\n\nFields\n1\n• Cart items\nValidations\n2\n• Removed item no longer appears in cart\n================================================================================\nAcceptance Criteria\n3\nGiven I have items in my cart\nWhen I click \"Remove\" on a cart item\nThen that item is removed from my cart\nUS-004\nChange Item Quantity in Cart\nAs customer, I want to change the quantity of items in my cart, so that I can adjust how much food I order.\n\nFields\n2\n• Cart items\n• Quantity\nValidations\n2\n• Quantity must be a positive integer\n================================================================================\nAcceptance Criteria\n3\nGiven I have items in my cart\nWhen I change the quantity of an item\nThen the total price updates accordingly\nUS-005\nView Cart and Total Price\nAs customer, I want to view my cart with all selected items and the total price, so that I can review my order before checking out.\n\nFields\n3\n• Cart items\n• Quantity\n• Total price\nValidations\n2\n• Total price accurately sums all items\n================================================================================\nAcceptance Criteria\n3\nGiven I have added items to my cart\nWhen I view the Cart Page\nThen I see a list of items with their quantities and the total price\nEPIC: Checkout Process\n2 stories\nUS-006\nEnter Checkout Details\nAs customer, I want to enter my name, phone number, and address during checkout, so that my order can be delivered correctly.\n\nFields\n3\n• Name\n• Phone number\n• Address\nValidations\n2\n• All fields must be filled before placing an order\n================================================================================\nAcceptance Criteria\n3\nGiven I am on the Checkout Page\nWhen I enter my name, phone number, and address\nThen the system accepts the information for order placement\nUS-007\nPlace Order\nAs customer, I want to place my order after entering my details, so that my request is submitted for processing.\n\nFields\n4\n• Cart contents\n• Name\n• Phone number\n• Address\nValidations\n2\n• Order cannot be placed with missing information\n================================================================================\nAcceptance Criteria\n3\nGiven I have entered all required checkout information\nWhen I click \"Place Order\"\nThen my order is submitted and processed\nEPIC: Order Confirmation\n2 stories\nUS-008\nDisplay Order Confirmation Message\nAs customer, I want to see a confirmation message after placing my order, so that I know my order was successful.\n\nFields\n1\n• Confirmation message\nValidations\n2\n• Message appears only after successful order placement\n================================================================================\nAcceptance Criteria\n3\nGiven I have placed an order\nWhen the order is processed\nThen I see a message: \"Order placed successfully\"\nUS-009\nShow Order Summary\nAs customer, I want to see a summary of my order after placing it, so that I can review what I have ordered.\n\nFields\n6\n• Ordered items\n• Quantities\n• Total price\n• Name\n• Phone number\n• Address\nValidations\n2\n• All order information is displayed accurately\n================================================================================\nAcceptance Criteria\n3\nGiven my order has been placed\nWhen I am on the Confirmation Page\nThen I see a list of ordered items, quantities, total price, and my delivery details\ngenerate the javascriptcodebase for the above attched user stories",
+  "type": "frontend",
+  "stack": {
+    "language": "javascript",
+    "frontend": {
+      "framework": "none",
+      "styling": "css"
+    },
+    "runtime": "node"
+  },
+  "features": [
+    {
+      "name": "Menu Items",
+      "type": "custom",
+      "entities": [
+        "MenuItem",
+        "CartItem",
+        "Order",
+        "CustomerDetails"
+      ],
+      "description": "Menu Items: Name [Must be present], Price (number) [Must be present], Image (file) [Must be present]"
+    },
+    {
+      "name": "Cart Management",
+      "type": "custom",
+      "entities": [
+        "MenuItem",
+        "CartItem",
+        "Order",
+        "CustomerDetails"
+      ],
+      "description": "Cart Management: Food item selection [Item added once per click], Cart items [Removed item no longer appears], Quantity (number) [Must be a positive integer], Total price (number) [Accurately sums all items]"
+    },
+    {
+      "name": "Checkout Details",
+      "type": "custom",
+      "entities": [
+        "MenuItem",
+        "CartItem",
+        "Order",
+        "CustomerDetails"
+      ],
+      "description": "Checkout Details: Name [Required before placing order], Phone number (phone) [Required before placing order], Address (textarea) [Required before placing order]"
+    },
+    {
+      "name": "Order Confirmation",
+      "type": "custom",
+      "entities": [
+        "MenuItem",
+        "CartItem",
+        "Order",
+        "CustomerDetails"
+      ],
+      "description": "Order Confirmation: Confirmation message [Appears only after successful order placement], Ordered items [All order information displayed accurately], Quantities (number) [All order information displayed accurately], Total price (number) [All order information displayed accurately], Name [All order information displayed accurately], Phone number (phone) [All order information displayed accurately], Address (textarea) [All order information displayed accurately]"
+    }
+  ],
+  "architecture": "monolith",
+  "testing": false,
+  "documentation": false,
+  "docker": false,
+  "cicd": false
+}

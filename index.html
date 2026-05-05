@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodOrder &mdash; Order Delicious Food Online</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo" id="logoLink">
+        <span class="logo-icon">&#127829;</span>
+        <span class="logo-text">FoodOrder</span>
+      </a>
+      <nav class="nav-links">
+        <button class="nav-btn active" id="navMenu">Menu</button>
+        <button class="nav-btn" id="navCart">
+          Cart
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content">
+
+    <!-- PAGE: MENU -->
+    <section class="page" id="pageMenu">
+      <div class="container">
+        <h1 class="page-title">Our Menu</h1>
+        <p class="page-subtitle">Fresh ingredients, bold flavours &mdash; pick your favourites.</p>
+        <div class="menu-grid" id="menuGrid"></div>
+      </div>
+    </section>
+
+    <!-- PAGE: CART -->
+    <section class="page hidden" id="pageCart">
+      <div class="container">
+        <h1 class="page-title">Your Cart</h1>
+        <div id="cartEmpty" class="empty-state">
+          <span class="empty-icon">&#128722;</span>
+          <p>Your cart is empty. <button class="link-btn" id="goToMenuBtn">Browse the menu</button></p>
+        </div>
+        <div id="cartContent" class="hidden">
+          <div class="cart-list" id="cartList"></div>
+          <div class="cart-summary">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="cartSubtotal">$0.00</span>
+            </div>
+            <div class="summary-row summary-total">
+              <span>Total</span>
+              <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn btn-primary btn-full" id="checkoutBtn">Proceed to Checkout</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE: CHECKOUT -->
+    <section class="page hidden" id="pageCheckout">
+      <div class="container checkout-container">
+        <h1 class="page-title">Checkout</h1>
+        <div class="checkout-layout">
+
+          <!-- Order Summary Sidebar -->
+          <aside class="checkout-summary">
+            <h2 class="section-title">Order Summary</h2>
+            <div class="checkout-items" id="checkoutItems"></div>
+            <div class="summary-row">
+              <span>Total</span>
+              <span id="checkoutTotal">$0.00</span>
+            </div>
+          </aside>
+
+          <!-- Delivery Details Form -->
+          <div class="checkout-form-wrap">
+            <h2 class="section-title">Delivery Details</h2>
+            <form class="checkout-form" id="checkoutForm" novalidate>
+
+              <div class="form-group">
+                <label for="fieldName">Full Name <span class="required">*</span></label>
+                <input type="text" id="fieldName" name="name" placeholder="Jane Doe" autocomplete="name" />
+                <span class="field-error" id="errorName">Please enter your full name.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="fieldPhone">Phone Number <span class="required">*</span></label>
+                <input type="tel" id="fieldPhone" name="phone" placeholder="+1 555 000 0000" autocomplete="tel" />
+                <span class="field-error" id="errorPhone">Please enter a valid phone number.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="fieldAddress">Delivery Address <span class="required">*</span></label>
+                <textarea id="fieldAddress" name="address" rows="3" placeholder="123 Main St, City, State, ZIP" autocomplete="street-address"></textarea>
+                <span class="field-error" id="errorAddress">Please enter your delivery address.</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full" id="placeOrderBtn">Place Order</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE: CONFIRMATION -->
+    <section class="page hidden" id="pageConfirmation">
+      <div class="container">
+        <div class="confirmation-card">
+          <div class="confirmation-icon">&#10003;</div>
+          <h1 class="confirmation-title">Order placed successfully</h1>
+          <p class="confirmation-subtitle">Thank you for your order! Here is your summary.</p>
+
+          <div class="confirmation-sections">
+
+            <!-- Delivery Info -->
+            <div class="conf-section">
+              <h2 class="section-title">Delivery Details</h2>
+              <div class="conf-detail-grid">
+                <div class="conf-detail">
+                  <span class="conf-label">Name</span>
+                  <span class="conf-value" id="confName"></span>
+                </div>
+                <div class="conf-detail">
+                  <span class="conf-label">Phone</span>
+                  <span class="conf-value" id="confPhone"></span>
+                </div>
+                <div class="conf-detail conf-detail--full">
+                  <span class="conf-label">Address</span>
+                  <span class="conf-value" id="confAddress"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ordered Items -->
+            <div class="conf-section">
+              <h2 class="section-title">Ordered Items</h2>
+              <div class="conf-items" id="confItems"></div>
+              <div class="summary-row summary-total conf-total-row">
+                <span>Total</span>
+                <span id="confTotal"></span>
+              </div>
+            </div>
+
+          </div>
+
+          <button class="btn btn-primary" id="newOrderBtn">Start a New Order</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
